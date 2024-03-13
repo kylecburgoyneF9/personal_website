@@ -9,6 +9,7 @@ export default async function (req, res) {
   }
 
   if (req?.body) {
+    const data = req.body
     msg.subject = `${data.subject}`,
     msg.html = `<h2>${data.name}</h2>
                 <h3>${data.email}</h3>
