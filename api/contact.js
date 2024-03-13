@@ -3,10 +3,10 @@ import sgMail from '@sendgrid/mail'
 export default async function (req, res) {
   const data = JSON.parse(req.body)
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-  
+
   const msg = {
-    to: `${process.env.SENDGRID_TO}`, // Change to your recipient
-    from: 'marieclaire.balabanian@gmail.com', // Change to your verified sender
+    to: `${process.env.SENDGRID_TO}`, //  your recipient
+    from: `${process.env.SENDGRID_FROM}`, //  your verified sender of sendgrid account
     subject: `${data.subject}`,
     html: `
       <h2>${data.name}</h2>
