@@ -50,10 +50,10 @@ const sendEmail = () => {
     body: JSON.stringify(form.value)
   })
   .then(() => {
-    success.value = true;
     for (const [key, value] of Object.entries(form.value)) {
       form.value[key] = ''
     }
+    success.value = true;
   })
   .catch(error => error.value = true);
 }
