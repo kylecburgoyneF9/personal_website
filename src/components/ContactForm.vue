@@ -1,60 +1,60 @@
 <template>
+
   <!-- 'contact' section design and elements -->
 <section class="contact" id="contact">
 <h2 class="heading">Contact <span>Me!</span></h2>
 <form ref="formRef" @submit.prevent="sendEmail">
   <div class="input-box">
     <div class="input-field">
-      <input v-model="name"  type="text" placeholder="Full Name" name="name" required>
+      <input v-model="form.name"  type="text" placeholder="Full Name" name="name" required>
     </div>
     <div class="input-field">
-      <input v-model="email" type="email" placeholder="Email Address" name="email" required>
+      <input v-model="form.email" type="email" placeholder="Email Address" name="email" required>
     </div>
   </div>
   <div class="input-box">
     <div class="input-field">
-      <input v-model="phone"  type="tel" placeholder="Mobile Number" name="phone" required>
+      <input v-model="form.phone"  type="tel" placeholder="Mobile Number" name="phone" required>
     </div>
     <div class="input-field">
-      <input v-model="subject" type="text" placeholder="Email Subject" name="subject" required>
+      <input v-model="form.subject" type="text" placeholder="Email Subject" name="subject" required>
     </div>
   </div>
   <div class="textarea-field">
-    <textarea v-model="message" id="message" cols="30" rows="10" placeholder="Your Message" name="message" required></textarea>
+    <textarea v-model="form.message" id="message" cols="30" rows="10" placeholder="Your Message" name="message" required></textarea>
   </div>
   <div class="btn-box btns">
     <button type="submit" class="btn">Submit</button>
   </div>
 </form>
+<p v-if="success" class="success">Thanks for reaching out!</p>
 </section>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-const message = ref('')
-const email = ref('')
-const name = ref('')
-const subject = ref('')
-const phone = ref('')
+const form = ref({
+  message: '',
+  email: '',
+  subject: '',
+  phone: '',
+  name: ''
+})
+
+const success = ref(false)
 
 const sendEmail = () => {
-const data = {
-    From: "hello@mcbalabanian.io",
-    To: "hello@mcbalabanian.io",
-    Subject: subject.value,
-    HtmlBody: `
-        <h2>${name.val}</h2>
-        <h3>${email.value}</h3>
-        <p>${phone.value}</p>
-        <p>${message.value}</p>
-        
-    `,
-};
-fetch('/api/contact', {
-    method: "POST",
-    body: JSON.stringify(data)
-})
+  const data = form.value
+  console.log(data)
+  fetch('/api/contact', {
+      method: "POST",
+      body: JSON.stringify(data)
+  })
+  success.value = true
+  for (const [key, value] of Object.entries(form.value)) {
+    form.value[key] = ''
+  }
 }
 </script>
 
@@ -67,6 +67,12 @@ background: white;
 
 .contact h2 {
 text-align: center;
+}
+
+.contact .success {
+  font-size: 2.6rem;
+  color: var(--main-color);
+  text-align: center;
 }
 
 .contact form {
