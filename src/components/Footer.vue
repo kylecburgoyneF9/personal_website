@@ -60,7 +60,7 @@ import SvgUpArrow from './svgs/UpArrow.vue'
   transition: .5s;
 }
 
-.footer-iconTop a:hover::before {
+.footer-iconTop a:hover::before, .footer-iconTop a:focus::before {
   width: 100%;
 }
 
@@ -70,7 +70,7 @@ import SvgUpArrow from './svgs/UpArrow.vue'
   transition: .5s;
 }
 
-.footer-iconTop a:hover i {
+.footer-iconTop a:hover i, .footer-iconTop a:focus i {
   color: var(--main-color);
 }
 

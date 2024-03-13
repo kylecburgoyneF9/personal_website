@@ -104,6 +104,7 @@ onBeforeUnmount(() => {
 }
 
 .navbar a:hover,
+.navbar a:focus,
 .navbar a.active {
   /*Implement the 'active' class at some point*/
   color: var(--main-color);

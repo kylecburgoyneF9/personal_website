@@ -92,11 +92,11 @@
 }
 
 /*Once the user hovers over these btns, then the psuedo element's width is changed to 100% and thus create the desired effect*/
-.interior-hero-content-btns .btn:hover::before {
+.interior-hero-content-btns .btn:hover::before, .interior-hero-content-btns .btn:focus::before {
     width: 100%;
 }
 
-.interior-hero-content-btns .btn:hover {
+.interior-hero-content-btns .btn:hover, .interior-hero-content-btns .btn:focus {
     color: var(--main-color);
     scale: 1.02;
     box-shadow: none;

@@ -40,7 +40,7 @@ import SvgLinkedin from "./svgs/Linkedin.vue";
     margin: 0 .5rem;
 }
 
-.social-links a:hover {
+.social-links a:hover, .social-links a:focus {
     color: var(--bg-color);
     box-shadow: 0 0 1rem var(--main-color);
     scale: 1.15;
@@ -58,6 +58,6 @@ import SvgLinkedin from "./svgs/Linkedin.vue";
     transition: .5s;
 }
 
-.social-links a:hover::before {
+.social-links a:hover::before, .social-links a:focus::before {
     width: 100%;
 }</style>

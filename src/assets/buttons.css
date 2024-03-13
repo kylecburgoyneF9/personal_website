@@ -32,12 +32,12 @@
     transition: .5s;
 }
 
-/* Hover effect for universal buttons */
-.universal-btn:hover::before {
+/* Hover and Focus effect for universal buttons */
+.universal-btn:hover::before, .universal-btn:focus::before {
     width: 100%;
 }
 
-.universal-btn:hover {
+.universal-btn:hover, .universal-btn:focus {
     color: var(--main-color);
     scale: 1.02;
     box-shadow: none;

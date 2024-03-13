@@ -61,22 +61,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--dk-blue);
   border-radius: 2rem;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
   /* Add a subtle box shadow */
-  transition: transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease, background .5s ease;
   /* Add transition for scaling and box shadow */
   cursor: pointer;
   max-width: 500px;
-  height: 350px;
+  min-height: 350px;
+  padding: 20px;
   min-width: 200px;
   border: 2px solid transparent;
+  position: relative;
+}
+
+.portfolio-contents>a::before {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0 0 0 0;
+    background: var(--dk-blue);
 }
 
 .portfolio .background-video {
   opacity: .3;
   border-radius: 2rem;
+  transition: opacity .3s ease;
 }
 
 .portfolio-contents h3 {
@@ -86,16 +96,17 @@
   color: white;
 }
 
-.portfolio-contents>a:hover {
+.portfolio-contents>a:hover, .portfolio-contents>a:focus {
   transform: scale(1.01);
   /* Scale up slightly on hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   /* Increase box shadow on hover */
-}
-
-.portfolio-contents>a:hover {
   border-color: var(--main-color);
   /* Add a border on hover */
+}
+
+.portfolio-contents>a:hover .background-video, .portfolio-contents>a:focus .background-video {
+  opacity: .2;
 }
 
 .portfolio-contents-consulting,

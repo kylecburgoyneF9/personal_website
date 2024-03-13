@@ -158,11 +158,11 @@ section {
 }
 
 /*Once the user hovers over these btns, then the psuedo element's width is changed to 100% and thus create the desired effect*/
-.btn-box .btn:hover::before {
+.btn-box .btn:hover::before, .btn-box .btn:focus::before {
   width: 100%;
 }
 
-.btn-box .btn:hover {
+.btn-box .btn:hover, .btn-box .btn:focus {
   color: var(--main-color);
   scale: 1.02;
   box-shadow: none;
@@ -177,7 +177,9 @@ section {
 
 
 .btn-box .btn:nth-child(2):hover,
-.btn-box .btn:nth-child(3):hover {
+.btn-box .btn:nth-child(2):focus,
+.btn-box .btn:nth-child(3):hover,
+.btn-box .btn:nth-child(3):focus {
   color: var(--bg-color);
   box-shadow: 0 0 1rem var(--main-color);
   scale: 1.02;
@@ -209,7 +211,7 @@ section {
   transition: 3s;
 }
 
-.home-imgHover:hover {
+.home-imgHover:hover, .home-imgHover:focus {
   background: var(--bg-color);
   opacity: .8;
 }
@@ -324,7 +326,7 @@ span {
   margin-bottom: 2rem;
 }
 
-.services-container .services-box:hover {
+.services-container .services-box:hover, .services-container .services-box:focus {
   border-color: var(--dk-blue);
   transform: scale(1.02);
   box-shadow: 0 0 1rem var(--dk-blue);
@@ -388,7 +390,7 @@ span {
   transition: .5s ease;
 }
 
-.coaching-box:hover img {
+.coaching-box:hover img, .coaching-box:focus img {
   transform: scale(1.1);
 }
 
@@ -409,7 +411,7 @@ span {
   transition: .5s ease;
 }
 
-.coaching-box:hover .coaching-layer {
+.coaching-box:hover .coaching-layer, .coaching-box:focus .coaching-layer {
   transform: translateY(0);
 }
 
